@@ -1,0 +1,71 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Aghiles AZZOUG">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+        <script src="./index.js"></script>
+        <title>Morpion Dotscreen</title>
+    </head>
+    <body>
+        <main class="background">
+            <section class="page-title">
+                <h1> 🐻 Morpion Dotscreen</h1>
+            </section>
+            <section class="display">
+                Player <span class="display-player playerX">X</span>'s turn
+            </section>color: white;
+            <section class="score">
+                player's score <span class="playerX">X</span>: <h3 class="counter .playerX " id="counter-labelX"></h3>
+                player's score <span class="playerO">O</span>: <h3 class="counter .playerO " id="counter-label0"></h3>
+            </section>
+            <section class="container">
+                <div class="grille"></div>
+                <div class="grille"></div>
+                <div class="grille"></div>
+                <div class="grille"></div>
+                <div class="grille"></div>
+                <div class="grille"></div>
+                <div class="grille"></div>
+                <div class="grille"></div>
+                <div class="grille"></div>
+            </section>
+            <section class="display announcer cache"></section>
+            <div class="display" id="timer"></div>
+            <script>
+            //   let temps = 180
+            //   const timerElement = document.getElementById("timer")
+        
+            //   function diminuerTemps() {
+            //     timerElement.innerText = temps
+            //     temps--
+            //}
+            // setInterval(diminuerTemps, 1000)
+
+                const departMinutes = 3
+                    let temps = departMinutes * 60
+
+                    const timerElement = document.getElementById("timer")
+
+                    setInterval(() => {
+                    let minutes = parseInt(temps / 60, 10)
+                    let secondes = parseInt(temps % 60, 10)
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes
+                    secondes = secondes < 10 ? "0" + secondes : secondes
+
+                    timerElement.innerText = `${minutes}:${secondes}`
+                    temps = temps <= 0 ? 0 : temps - 1
+                    }, 1000)
+                    
+        
+            </script>
+            <section class="option">
+                <button id="clear">Reset</button>
+            </section>
+        </main>
+    </body>
+</html>
